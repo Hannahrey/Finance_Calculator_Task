@@ -1,0 +1,88 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <script src="dist/js/script.js" defer></script>
+    <script src="dist/js/display-calculation.js" defer></script>
+    <script src="dist/js/print-months.js" defer></script>
+    <script src="dist/js/print-admin-fee.js" defer></script>
+    <script src="dist/js/print-repayment-amount.js" defer></script>
+
+    
+    <title>Mayden Finance Calculator</title>
+  </head>
+  <body>
+    <!-- top banner with logo and header-->
+      <div class="top-banner">
+          <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-sm-12 col-md-8 col-lg-6 offset-sm-0 offset-md-2 offset-lg-3" >
+                        <img class="maydenLogo" src="https://mayden.academy/wp-content/themes/academy3/images/logo-academy.svg" alt="Mayden Academy"/>
+                        <h1>Finance Calculator</h1>
+                      </div>
+                  </div>
+          </div>
+      </div>
+      <!-- paragraph explaining finance-->
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 col-md-10 col-lg-10 offset-sm-0 offset-md-1 offset-lg-1">
+                <h2>How much can you borrow</h2>
+                <p>The upfront course fee for the Full Stack Track is £8,000* (*£10k from January 2021), however depending on how much you borrow the total fee can change.</p>
+                  <p>EdAid charge a 5% admin fee on any money borrowed.</p>
+                  <p>e.g. If you borrow £6,000, you pay a £300 admin fee upfront. This does not go towards the cost of the course, and is a fee charged by EdAid, not Mayden Academy.</p>
+                  
+                <ul> 
+                  <li>If you borrow up to 80% (£6400), the course fee is £8,000 (+ 5% EdAid admin fee)</li>
+                  <li>If you borrow 81% – 90%, the course fee is £8,500 (+ 5% EdAid admin fee)</li>
+                  <li>If you borrow over 90% (£7200), the course fee is £9,000 (+ 5% EdAid admin fee)</li>
+                </ul>
+              </div>
+          </div>
+      </div>
+      <!--form containing calculator-->
+      <div class="container">
+          <form action="" method="post">
+              <div class="row">
+                  <div class="col-sm-12 col-md-10 col-lg-8 offset-sm-0 offset-md-1 offset-lg-2 calculator-box">
+                      <div class="col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 one-field">
+                        <label for="borrow">Amount to borrow in £:</label>
+                        <input type="number" id="borrow" name="borrow" placeholder="e.g £5000" min="1" max="8000" required/>
+                      </div>
+                      
+                      <div class="col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 one-field">
+                          <label for="salaryExp">Expected Salary in £:</label>
+                          <input type="number" id="salaryExp" name="salaryExp" min="0" max="50000" placeholder="e.g £25000" default="25000" required/>
+                      </div>
+
+                      <div class="col-sm-10 col-md-10 col-lg-8 offset-sm-1 offset-md-1 offset-lg-2 one-field">
+                          <label for="monthlyRepayment">Monthly repayment (% of pre-tax salary):</label>
+                          <input type="number" id="monthlyRepayment" name="monthlyRepayment" placeholder="min 10%" default="10" min="10" max="100" required/>
+                      </div>
+                      <div class="col-sm-3 col-md-2 col-lg-2 offset-sm-4 offset-md-4 offset-lg-4 one-field">
+                          <input class="button" type="submit" value="Calculate" name="calculate"/>
+                      </div> 
+                        <!--results container--> 
+                      <div class="col-sm-12 col-md-10 col-lg-8 offset-sm-0 offset-md-1 offset-lg-2 results hidden">
+                          <div class="row">
+                              <div id="repayment">HELLO </div>
+                              <div id="months">HELLO </div>
+                              <div id="adminFee">HELLO </div>
+                              
+                          </div>
+                      </div>  
+                  </div>
+                    
+              </div>        
+          </form> 
+         
+      </div>
+      
+
+  
+  </body>
+</html>

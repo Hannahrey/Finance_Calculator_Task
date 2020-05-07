@@ -1,0 +1,13 @@
+{
+    "files": [
+      "src/js/script.ts",
+      "src/js/display-calculation.ts",
+      "src/js/print-months.ts",
+      "src/js/print-admin-fee.ts",
+      "src/js/print-repayment-amount.ts"
+    ],
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "target": "es5"
+    }
+}

@@ -1,0 +1,42 @@
+$primary-font-size : 15px;
+
+body {
+    font-family: 'Asap', sans-serif;
+    color: #2B2C2C;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p, li {
+    font-size: $primary-font-size;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+
+@media only screen and (max-width: 770px) {
+    /* mobile size*/
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    p, li {
+        font-size: 14px;
+    }
+} 

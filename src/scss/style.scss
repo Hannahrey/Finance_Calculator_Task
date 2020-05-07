@@ -1,0 +1,22 @@
+@import 'calculator-box';
+@import 'top-banner';
+@import 'button';
+@import 'inputs';
+@import 'typography';
+
+.hidden {
+    display: none;
+}
+
+.container-fluid {
+
+}
+
+
+.one-field {
+    text-align: center;
+    padding: 0;
+    margin: 25px auto;
+}
+
+
