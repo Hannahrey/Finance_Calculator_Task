@@ -1,20 +1,16 @@
 var calculateButton = document.querySelector('.button');
 var resultsBox = document.querySelector('.results');
 var errorBox = document.querySelector('.error');
-var numberCheck = RegExp(/\d/);
+var numberCheck = RegExp(/^[\d]+$/);
 var expectedSalaryInput = document.querySelector('#salaryExp');
 var monthlyPercentInput = document.querySelector('#monthlyRepayment');
 var borrowInput = document.querySelector('#borrow');
 //when calculate button clicked, triggers event listener
 calculateButton.addEventListener('click', function (e) {
     e.preventDefault();
-    //if input fields not filled out then alert is triggered.
-    if (expectedSalaryInput.value == "" || monthlyPercentInput.value == "" || borrowInput.value == "") {
-        printError(resultsBox, errorBox, "Please fill in all fields");
-        return;
-    }
+    //if input fields don't match regex, or are not filled out then alert is triggered.
     if (!numberCheck.test(expectedSalaryInput.value) || !numberCheck.test(monthlyPercentInput.value) || !numberCheck.test(borrowInput.value)) {
-        printError(resultsBox, errorBox, "Error: you must enter a number");
+        printError(resultsBox, errorBox, "Error: please enter a number in all fields");
         return;
     }
     //parseFloat converts the value from a string to a float
@@ -38,5 +34,6 @@ calculateButton.addEventListener('click', function (e) {
     }
     var calculatedRepayment = calcRepayment(borrow);
     var totalMonth = totalMonths(expectedSalary, calculatedRepayment, monthlyPercent);
+    //print results to screen
     printResult(calculatedRepayment, totalMonth, adminFee(borrow));
 });
