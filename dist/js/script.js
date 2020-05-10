@@ -1,63 +1,42 @@
-/**
- * function which outputs the total repayment amount
- * @param {amountBorrow} contains the amount borrowed
- */
 var calculateButton = document.querySelector('.button');
 var resultsBox = document.querySelector('.results');
+var errorBox = document.querySelector('.error');
+var numberCheck = RegExp(/\d/);
 var expectedSalaryInput = document.querySelector('#salaryExp');
 var monthlyPercentInput = document.querySelector('#monthlyRepayment');
 var borrowInput = document.querySelector('#borrow');
-function calcRepayment(amountBorrow) {
-    if (amountBorrow > 8000) {
-        alert("Error- the maximum amount you can borrow is 8000");
-    }
-    else if (amountBorrow > 7200) {
-        var totalRepayment = amountBorrow + 1000;
-        return totalRepayment;
-    }
-    else if (amountBorrow > 6400) {
-        var totalRepayment = amountBorrow + 500;
-        return totalRepayment;
-    }
-    else {
-        var totalRepayment = amountBorrow;
-        return totalRepayment;
-    }
-}
-/**
- * function to calculate how many months it would take to repay the loan in full.
- * @param {expectedSalary} contains the expected salary in £
-* @param {monthlyPercent} contains the percentage of pre tax salary to be repayed monthly
-* @param {calcRepayment} contains the amount to be repayed
- */
-function totalMonths(expectedSalary, calcRepayment, monthlyPercent) {
-    var monthlyRepayment = (expectedSalary / 12) * (monthlyPercent / 100);
-    var noOfMonths = calcRepayment / monthlyRepayment;
-    printMonths(noOfMonths);
-}
-;
-/**
- * function to calculate the 5% admin fee
- * @param {amountBorrow} contains the amount borrowed
- */
-function adminFee(amountBorrow) {
-    var fee = (amountBorrow * 0.05);
-    printAdminFee(fee);
-}
 //when calculate button clicked, triggers event listener
 calculateButton.addEventListener('click', function (e) {
     e.preventDefault();
+    //if input fields not filled out then alert is triggered.
+    if (expectedSalaryInput.value == "" || monthlyPercentInput.value == "" || borrowInput.value == "") {
+        printError(resultsBox, errorBox, "Please fill in all fields");
+        return;
+    }
+    if (!numberCheck.test(expectedSalaryInput.value) || !numberCheck.test(monthlyPercentInput.value) || !numberCheck.test(borrowInput.value)) {
+        printError(resultsBox, errorBox, "Error: you must enter a number");
+        return;
+    }
     //parseFloat converts the value from a string to a float
     var expectedSalary = parseFloat(expectedSalaryInput.value);
     var monthlyPercent = parseFloat(monthlyPercentInput.value);
     var borrow = parseFloat(borrowInput.value);
-    //if input fields not filled out then alert is triggered.
-    if (!expectedSalary || !monthlyPercent || !borrow) {
-        alert("Please fill in all fields");
+    //checking the amount to borrow is between £0-8000, or triggers error
+    if (borrow < 0 || borrow > 8000) {
+        printError(resultsBox, errorBox, "Error: You can only borrow between £0-8000");
         return;
     }
-    removeHidden(resultsBox);
-    adminFee(borrow);
-    totalMonths(expectedSalary, calcRepayment(borrow), monthlyPercent);
-    printRepaymentAmount(calcRepayment(borrow));
+    //checking the monthly repayment % is between 0-100, or triggers error
+    if (monthlyPercent < 10 || monthlyPercent > 100) {
+        printError(resultsBox, errorBox, "Error: The monthly percentage must be between 10-100%");
+        return;
+    }
+    //checking the expected salary is between £0-100000, or triggers error
+    if (expectedSalary < 0 || expectedSalary > 100000) {
+        printError(resultsBox, errorBox, "Error: Expected salary must be between £0-100000");
+        return;
+    }
+    var calculatedRepayment = calcRepayment(borrow);
+    var totalMonth = totalMonths(expectedSalary, calculatedRepayment, monthlyPercent);
+    printResult(calculatedRepayment, totalMonth, adminFee(borrow));
 });

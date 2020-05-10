@@ -7,10 +7,12 @@
     <link rel="stylesheet" type="text/css" href="dist/css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&display=swap" rel="stylesheet"/>
     <script src="dist/js/script.js" defer></script>
-    <script src="dist/js/display-calculation.js" defer></script>
-    <script src="dist/js/print-months.js" defer></script>
-    <script src="dist/js/print-admin-fee.js" defer></script>
-    <script src="dist/js/print-repayment-amount.js" defer></script>
+    <script src="dist/js/display_calculation.js" defer></script>
+    <script src="dist/js/print_error.js" defer></script>
+    <script src="dist/js/calc_repayment_amount.js" defer></script>
+    <script src="dist/js/calc_months.js" defer></script>
+    <script src="dist/js/calc_admin_fee.js" defer></script>
+    <script src="dist/js/print_result.js" defer></script>
 
     
     <title>Mayden Finance Calculator</title>
@@ -67,14 +69,8 @@
                           <input class="button" type="submit" value="Calculate" name="calculate"/>
                       </div> 
                         <!--results container--> 
-                      <div class="col-sm-12 col-md-10 col-lg-8 offset-sm-0 offset-md-1 offset-lg-2 results hidden">
-                          <div class="row">
-                              <div id="repayment">HELLO </div>
-                              <div id="months">HELLO </div>
-                              <div id="adminFee">HELLO </div>
-                              
-                          </div>
-                      </div>  
+                      <div class="col-sm-12 col-md-10 col-lg-8 offset-sm-0 offset-md-1 offset-lg-2 results hidden"></div>  
+                      <div class="col-sm-12 col-md-10 col-lg-8 offset-sm-0 offset-md-1 offset-lg-2 error hidden"></div>
                   </div>
                     
               </div>        
