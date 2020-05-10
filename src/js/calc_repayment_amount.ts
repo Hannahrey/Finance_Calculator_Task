@@ -8,8 +8,8 @@ function calcRepayment(amountBorrow: number) {
        let totalRepayment = amountBorrow  + 1000;
        return totalRepayment;
    } else if (amountBorrow  > 6400 ) {
-    let totalRepayment = amountBorrow  + 500;
-    return totalRepayment;
+        let totalRepayment = amountBorrow  + 500;
+        return totalRepayment;
    } else {
        let totalRepayment = amountBorrow ;
        return totalRepayment;
