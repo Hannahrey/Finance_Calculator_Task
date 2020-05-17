@@ -7,3 +7,14 @@
         margin-top: 40px;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    /* mobile size*/
+    .top-banner {
+         .maydenLogo {
+            width: 90%;
+            height: auto;
+            margin-top: 40px;
+        }
+    }
+}
