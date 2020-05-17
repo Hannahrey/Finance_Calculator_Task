@@ -9,7 +9,7 @@
 function printError(resultsBox: HTMLElement, errorBox: HTMLElement, error: string) {
     resultsBox.classList.add('hidden');
     errorBox.classList.remove('hidden');
-    var errorContent = "<p>" + error + "</p>";
+    var errorContent: string = "<p>" + error + "</p>";
     errorBox.innerHTML = errorContent;
  };
 

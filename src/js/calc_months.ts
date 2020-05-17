@@ -5,8 +5,8 @@
 * @param {calcRepayment} contains the amount to be repayed
  */
 
-function totalMonths(expectedSalary: number, calcRepayment: number, monthlyPercent: number) {
-    let monthlyRepayment = (expectedSalary / 12) * (monthlyPercent/100);
-    let noOfMonths = calcRepayment / monthlyRepayment;
+function totalMonths(expectedSalary: number, calcRepayment: number, monthlyPercent: number) : number {
+    let monthlyRepayment: number = (expectedSalary / 12) * (monthlyPercent/100);
+    let noOfMonths: number = calcRepayment / monthlyRepayment;
     return noOfMonths;
 };

@@ -3,7 +3,7 @@
  * @param {resultsBox} contains the box to be revealed
  */
 
-function removeHidden(resultsBox: HTMLElement) {
+function removeHidden(resultsBox: HTMLElement): void {
     resultsBox.classList.remove('hidden');
  };
 
