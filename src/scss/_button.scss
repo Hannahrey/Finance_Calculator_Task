@@ -1,17 +1,18 @@
 .button {
-    color: #FFFFFF;
+    color: $inside-box-font-color;
     text-align: center;
     font-weight: 400;
     font-size: 16px;
 
     padding: 6px 10px;
     margin: 30px 0 0 0;
-    border: 1px solid #FFFFFF;
-    background-color: #8D0377;
+    border: 1px solid $inside-box-font-color;
+    background-color: $mayden-purple-color;
     align-items: center;
     transition: background-color .5s;
 
     &:hover {
-        background-color: #c63806;    
+        background-color: $mayden-orange-color; 
+        border: 10px;   
     }
 }

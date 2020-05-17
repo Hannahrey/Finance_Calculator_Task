@@ -1,8 +1,9 @@
 $primary-font-size : 15px;
 
+
 body {
     font-family: 'Asap', sans-serif;
-    color: #2B2C2C;
+    color: $primary-font-color;
 }
 
 h1 {
